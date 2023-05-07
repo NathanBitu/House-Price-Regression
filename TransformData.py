@@ -48,7 +48,9 @@ class transform_data:
             return df
 
         train_df = fill_nas(train_df)
-
+        ## For analysis is better to have categorical columns instead of onehot encoded
+        if train_or_analysis == 'analysis':
+            return train_df
         # Log-transform numerical columns
         num_columns = []
         for column in train_df.columns:
@@ -60,9 +62,7 @@ class transform_data:
                 train_df[column] = np.log(train_df[column].astype(float) + 1)
             else:
                 train_df[column] = np.log(train_df[column].astype(float))
-        ## For analysis is better to have categorical columns instead of onehot encoded
-        if train_or_analysis == 'analysis':
-            return train_df
+
         # One-hot encode categorical columns
         cat_columns = [column for column in train_df.columns if train_df[column].dtype == 'O']
 
