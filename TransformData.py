@@ -44,7 +44,7 @@ class transform_data:
                     df[column] = df[column].fillna('No Basement')
                 elif column == 'LotFrontage':
                     df[column] = df[column].fillna(df[column].mean())
-            df.dropna(inplace = True)
+            #df.dropna(inplace = True)
             return df
 
         train_df = fill_nas(train_df)
@@ -60,6 +60,8 @@ class transform_data:
         for column in num_columns:
             if train_df[column].min() == 0:
                 train_df[column] = np.log(train_df[column].astype(float) + 1)
+            elif column == 'Id':
+                continue
             else:
                 train_df[column] = np.log(train_df[column].astype(float))
 
