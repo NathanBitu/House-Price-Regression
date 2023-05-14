@@ -18,11 +18,21 @@ The data used in this project is a sample dataset from the [Kaggle House Prices 
 
 ## Model
 
-TBD
+### XGBoosting
+
+After some experiments the final version was made with XGBoosting, XGBoost is based on the gradient boosting framework, which involves iteratively adding weak learners (simple models) to the ensemble, each time focusing on the samples that were poorly predicted by the previous models. 
+
+### Hyper-parameter tuning and model optimization
+
+I created 200 optuna studies to find the best hyper-parameters based on the root mean squared error of the logarithm of the target values which is the valuation metric for the competition. After the training and validation for the best model I used feature importances to delete all columns which where not important for the prediction, which made my model faster and simpler.
 
 ## Evaluation
 
-To evaluate the performance of the model, we have used various metrics such as mean squared error, root mean squared error, and R-squared. We have also plotted some data visualizations to help you understand the relationships between the features and the target variable. You can use these tools to evaluate the model's performance on your own data.
+To evaluate the performance of the model, I used various metrics such as mean squared error, root mean squared error, and mean absolute percentage error. I validated the model during training using the root mean squared error of the logarithm of the target values. I used You can use these tools to evaluate the model's performance on your own data.
+
+## Results
+
+This model got top 568 or ~12% for the <a href="https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/leaderboard#">Kaggle competition</a>, which is a very good result taking in account that the test results got <a href="https://www.kaggle.com/code/nitindantu/100-accurate">leaked</a>. 
 
 ## Conclusion
 
