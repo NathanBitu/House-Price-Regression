@@ -57,13 +57,13 @@ class transform_data:
             if train_df[column].dtype in ('int64', 'float64'):
                 num_columns.append(column)
         
-        for column in num_columns:
-            if train_df[column].min() == 0:
-                train_df[column] = np.log(train_df[column].astype(float) + 1)
-            elif column == 'Id':
-                continue
-            else:
-                train_df[column] = np.log(train_df[column].astype(float))
+        #for column in num_columns:
+        #    if train_df[column].min() == 0:
+        #       train_df[column] = np.log(train_df[column].astype(float) + 1)
+        #    elif column == 'Id':
+        #        continue
+        #    else:
+        #        train_df[column] = np.log(train_df[column].astype(float))
 
         # One-hot encode categorical columns
         cat_columns = [column for column in train_df.columns if train_df[column].dtype == 'O']
