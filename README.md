@@ -28,7 +28,7 @@ I created 200 optuna studies to find the best hyper-parameters based on the root
 
 ## Evaluation 📈
 
-To evaluate the performance of the model, I used various metrics such as mean squared error, root mean squared error, and mean absolute percentage error. I validated the model during training using the root mean squared error of the logarithm of the target values. I used You can use these tools to evaluate the model's performance on your own data.
+To evaluate the performance of the model, I used various metrics such as mean squared error, root mean squared error, and mean absolute percentage error. I validated the model during training using the root mean squared error of the logarithm of the target values.
 
 ## Results 🎉
 
